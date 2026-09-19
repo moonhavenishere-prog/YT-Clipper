@@ -61,6 +61,7 @@ function stepReview() {
     lines.push(`- **Start:** ${clip.start}s`);
     lines.push(`- **End:** ${clip.end}s`);
     lines.push(`- **Hook:** ${clip.hook}`);
+    if (clip.reason) lines.push(`- **Why it works:** ${clip.reason}`);
     if (clip.excerpt) lines.push(`- **Excerpt:** ${clip.excerpt}`);
     lines.push("");
   });

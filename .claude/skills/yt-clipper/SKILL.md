@@ -44,7 +44,10 @@ Run `python/transcript.py` (`youtube-transcript-api`) against the URL.
 Output: clean timestamped JSON at `data/transcript.json`.
 
 ### Step 3: AI Clip Selection
-Read `data/transcript.json` and select the best clips. Output structured
+Read `data/transcript.json` and select the best clips. Before scoring
+candidates, consult `references/clip-selection.md` for the full selection
+criteria (hook strength, emotional peaks, insight density, controversy,
+10–25s length constraint, mandatory `reason` field). Output structured
 `data/clips.json` — see schema in "Critical Design Decisions" below.
 
 ### Step 4: CRITICAL — Mandatory User Review
@@ -96,20 +99,25 @@ project_root/
 ## Critical Design Decisions
 
 - **No Markdown for timestamps in the final pipeline.** Markdown is only for the Step 4 human-review file. Everything FFmpeg/Remotion consume must be structured JSON.
-- **`clips.json` schema:**
+- **`clips.json` schema** (see `references/clip-selection.md` for the full selection criteria behind it):
 
 ```json
 {
   "clips": [
     {
+      "title": "Discipline Truth",
       "start": 120,
       "end": 135,
       "hook": "This is why most people fail",
-      "title": "Discipline Truth"
+      "reason": "Contrarian claim + immediate payoff, strong 15s standalone hook"
     }
   ]
 }
 ```
+
+- Each clip: 10–25s (ideal ~15s), hook in the first sentence, contextually
+  self-contained, and `reason` is mandatory — it proves intent, not just
+  mechanical timestamp extraction.
 
 ## Environment Variables & API Keys
 
