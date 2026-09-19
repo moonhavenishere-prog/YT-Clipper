@@ -1,0 +1,6 @@
+{
+  "elevenLabs": {
+    "voiceId": "your_voice_id_here",
+    "enabled": false
+  }
+}

@@ -1,0 +1,26 @@
+# Secrets
+.env
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Pipeline artifacts (regenerated per run)
+data/transcript.json
+data/clips.json
+data/clip-review.md
+data/.approved
+video/*.mp4
+assets/*.mp4
+Outputs/*.mp4
+projects/*/
+
+# Remotion / Node
+.remotion/
+dist/
+
+# OS
+.DS_Store

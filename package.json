@@ -1,0 +1,21 @@
+{
+  "name": "yt-clipper",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reusable, modular content engine for clipping YouTube videos into vertical shorts.",
+  "main": "main.js",
+  "scripts": {
+    "transcript": "node main.js transcript",
+    "review": "node main.js review",
+    "approve": "node main.js approve",
+    "extract": "node main.js extract",
+    "render": "node main.js render"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/renderer": "^4.0.0",
+    "remotion": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
